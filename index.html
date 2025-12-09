@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PayTrace – Odoo Payment Gateway Integration</title>
+
+<style>
+:root {
+    --primary: #4f46e5;
+    --secondary: #f4f6fb;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --border: #e5e7eb;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    background: #f9fafb;
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 30px;
+}
+
+/* Headings */
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-top: 25px;
+}
+
+h4 {
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+/* Intro text */
+.intro {
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+/* Section Cards */
+.section {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 22px;
+}
+
+li {
+    margin: 8px 0;
+}
+
+/* Highlight box */
+.highlight {
+    background: var(--secondary);
+    border-left: 5px solid var(--primary);
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin: 20px 0;
+}
+
+/* Code */
+code {
+    background: #f1f5f9;
+    padding: 4px 7px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+pre {
+    background: #0f172a;
+    color: #e5e7eb;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 14px;
+}
+
+/* Images */
+img {
+    max-width: 75%;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+/* Divider */
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 50px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>PayTrace – Odoo Payment Gateway Integration</h1>
+<p class="intro">
+Seamlessly integrate the <strong>PayTrace Payment Gateway</strong> with Odoo for secure online and backend payments.
+</p>
+
+<ul>
+    <li><strong>Website Checkout Payments</strong></li>
+    <li><strong>Backend Invoice Payments (Phone Orders)</strong></li>
+    <li><strong>Secure Card Tokenization using PayTrace Customer Vault</strong></li>
+</ul>
+
+<hr>
+
+<!-- FEATURES -->
+<div class="section">
+<h2>1. Key Features</h2>
+<ul>
+    <li>Website checkout payments</li>
+    <li>Backend invoice payments with manual card entry</li>
+    <li>Card tokenization with PayTrace Vault</li>
+    <li>Pay using saved card tokens</li>
+    <li>Partial and full payments supported</li>
+    <li>Multiple cards per customer</li>
+    <li>PCI-compliant (Odoo never stores card numbers)</li>
+    <li>Supports PayTrace Sandbox (test) & Production environments</li>
+</ul>
+</div>
+
+<!-- INSTALLATION -->
+<div class="section">
+<h2>2. Installation</h2>
+<ol>
+    <li>Copy the module into the addons folder</li>
+    <li>Update Apps List in Odoo</li>
+    <li>Install the module from the Apps menu</li>
+</ol>
+</div>
+
+<!-- CREDENTIALS -->
+<div class="section">
+<h2>3. PayTrace API Credentials</h2>
+<p>Obtain the following from the PayTrace merchant portal:</p>
+<ul>
+    <li><strong>Merchant ID</strong></li>
+    <li><strong>API Username (Client ID)</strong></li>
+    <li><strong>API Password (Client Secret)</strong></li>
+</ul>
+<p>Enter these details in the Odoo Payment Provider settings.</p>
+</div>
+
+<!-- CONFIGURATION -->
+<div class="section">
+<h2>4. Configuration in Odoo</h2>
+
+<h3>4.1 Payment Provider Setup</h3>
+<ol>
+    <li>Go to <strong>Invoicing → Configuration → Payment Providers</strong>.</li>
+    <li>Open <strong>PayTrace</strong>.</li>
+    <li>Enable the provider.</li>
+    <li>Select <strong>Test</strong> or <strong>Production</strong> mode.</li>
+    <li>Enter your PayTrace API credentials.</li>
+    <li>Save the configuration.</li>
+</ol>
+
+<img src="config.jpg" alt="Payment Provider Configuration">
+</div>
+
+<hr>
+
+<!-- FRONTEND -->
+<div class="section">
+<h2>5. Website Payments</h2>
+<p>Customers can enter card details securely during checkout and complete payments instantly.</p>
+<img src="website.jpg" alt="Website Payment Screenshot">
+</div>
+
+<hr>
+
+<!-- BACKEND -->
+<div class="section">
+<h2>6. Backend Invoice Payments</h2>
+<p>Users can process payments directly from customer invoices, including phone orders.</p>
+
+<h3>6.1 “Pay With Card” Button</h3>
+<p>This button appears on any posted invoice and opens the secure payment wizard.</p>
+<img src="invoice.jpg" alt="Invoice Page Screenshot">
+
+<h3>6.2 Payment Wizard Options</h3>
+
+<h4>A) Manual Card Entry</h4>
+<ul>
+    <li>Operator enters card number, expiry, and CVV</li>
+    <li>Option to save card details in PayTrace Vault</li>
+</ul>
+<img src="manual.jpg" alt="Manual Entry Screenshot">
+
+<h4>B) Pay Using Saved Token</h4>
+<ul>
+    <li>Select previously saved customer cards</li>
+    <li>Instant, secure payment</li>
+</ul>
+<img src="manual2.jpg" alt="Saved Cards Screenshot">
+</div>
+
+<hr>
+
+<!-- TOKENIZATION -->
+<div class="section">
+<h2>7. Tokenization & Customer Vault</h2>
+<div class="highlight">
+All sensitive card data is securely tokenized by PayTrace.  
+Odoo only stores the token and masked card number, ensuring full PCI compliance.
+</div>
+</div>
+
+</div>
+</body>
+</html>
+
